@@ -46,16 +46,33 @@
             transform: translate(-50%,-50%);
             width: 200%;
         }
+        #xiaoman_png{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 200%;
+
+            display: none;
+        }
     </style>
 </head>
 <body>
     <div id="">
         <img src="https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/%E6%AF%8D%E4%BA%B2%E8%8A%82.jpg" alt="" id="bg_photo">
+        <img src="https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/%E5%B0%8F%E6%BB%A1.jpg" alt="" id="xiaoman_png">
         <h1 id="number">随机回忆课文</h1>
         <button id="take_one">自然选择</button>
     </div>
 
     <script>
+        let random_math = parseInt(Math.random()*10)
+        let xiaoman_png = document.getElementById("xiaoman_png")
+        let bg_photo = document.getElementById("bg_photo")
+        while(random_math<=5){
+            xiaoman_png.style.display = "inline"
+            bg_photo.style.display = "none"
+        }
         let number = document.getElementById("number")
         let take_one = document.getElementById("take_one")
 
@@ -66,7 +83,7 @@
 
             let article_name_list = ["师说","岳阳楼记","始得西山宴游记","論仁、論孝、論君子","鱼我所欲","诗三首","词三首","出师表","六国论"]
             let article_link_list = ["https://so.gushiwen.cn/search.aspx?value=%E5%B8%88%E8%AF%B4&valuej=%E5%B8%88","https://so.gushiwen.cn/shiwenv_f3d6556dbcad.aspx","https://so.gushiwen.cn/shiwenv_8cbd65ff01b5.aspx","https://www.edb.gov.hk/attachment/tc/curriculum-development/kla/chi-edu/nss-lang/Set_text_12.pdf",
-            "https://so.gushiwen.cn/shiwenv_740f1087a38c.aspx","https://blog.tutorcircle.hk/26592/dse%E4%B8%AD%E6%96%87%E7%AF%84%E6%96%87-%E5%94%90%E8%A9%A9%E4%B8%89%E9%A6%96-%E5%B1%B1%E5%B1%85%E7%A7%8B%E6%9A%9D-%E6%9C%88%E4%B8%8B%E7%8D%A8%E9%85%8C-%E7%99%BB%E6%A8%93/","https://infinitymark.github.io/song_ci.github.io/","https://so.gushiwen.cn/shiwenv_8bc0871fe00b.aspx","https://so.gushiwen.cn/search.aspx?value=%E5%85%AD%E5%9B%BD%E8%AE%BA&valuej=%E5%85%AD"]
+            "https://so.gushiwen.cn/shiwenv_740f1087a38c.aspx","https://infinitymark.github.io/tang_poem.github.io/","https://infinitymark.github.io/song_ci.github.io/","https://so.gushiwen.cn/shiwenv_8bc0871fe00b.aspx","https://so.gushiwen.cn/search.aspx?value=%E5%85%AD%E5%9B%BD%E8%AE%BA&valuej=%E5%85%AD"]
 
             number.style.transition = "2s"
             number.style.fontSize = "50px"
