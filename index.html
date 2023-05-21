@@ -17,7 +17,7 @@
         }
 
         #number{
-            font-size: 50px;
+            font-size: 30px;
 
             position: absolute;
             top: 20%;
@@ -39,21 +39,24 @@
             transform: translate(-50%,-50%);
         }
 
-        #show_name{
-            text-align: center;
+        #bg_photo{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 200%;
         }
     </style>
 </head>
 <body>
     <div id="">
-        <h1 id="number">随机</h1>
-        <h1 id="show_name"></h1>
+        <img src="https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/%E6%AF%8D%E4%BA%B2%E8%8A%82.jpg" alt="" id="bg_photo">
+        <h1 id="number">随机回忆课文</h1>
         <button id="take_one">自然选择</button>
     </div>
 
     <script>
         let number = document.getElementById("number")
-        let show_name = document.getElementById("show_name")
         let take_one = document.getElementById("take_one")
 
         take_one.addEventListener("click",function(){
@@ -62,13 +65,16 @@
             number.innerText = number_random.toString()
 
             let article_name_list = ["师说","岳阳楼记","始得西山宴游记","論仁、論孝、論君子","鱼我所欲","诗三首","词三首","出师表","六国论"]
-            let article_link_list = ["https://so.gushiwen.cn/search.aspx?value=%E5%B8%88%E8%AF%B4&valuej=%E5%B8%88","https://so.gushiwen.cn/shiwenv_f3d6556dbcad.aspx","https://so.gushiwen.cn/shiwenv_8cbd65ff01b5.aspx","https://www.edb.gov.hk/attachment/tc/curriculum-development/kla/chi-edu/nss-lang/Set_text_12.pdf","https://so.gushiwen.cn/shiwenv_740f1087a38c.aspx","https://blog.tutorcircle.hk/26592/dse%E4%B8%AD%E6%96%87%E7%AF%84%E6%96%87-%E5%94%90%E8%A9%A9%E4%B8%89%E9%A6%96-%E5%B1%B1%E5%B1%85%E7%A7%8B%E6%9A%9D-%E6%9C%88%E4%B8%8B%E7%8D%A8%E9%85%8C-%E7%99%BB%E6%A8%93/","https://blog.tutorcircle.hk/26618/dse%E4%B8%AD%E6%96%87%E7%AF%84%E6%96%87-%E8%A9%9E%E4%B8%89%E9%A6%96-%E5%BF%B5%E5%A5%B4%E5%AC%8C-%E8%81%B2%E8%81%B2%E6%85%A2-%E9%9D%92%E7%8E%89%E6%A1%88-%E8%AA%9E%E8%AD%AF/","https://so.gushiwen.cn/shiwenv_8bc0871fe00b.aspx","https://so.gushiwen.cn/search.aspx?value=%E5%85%AD%E5%9B%BD%E8%AE%BA&valuej=%E5%85%AD"]
+            let article_link_list = ["https://so.gushiwen.cn/search.aspx?value=%E5%B8%88%E8%AF%B4&valuej=%E5%B8%88","https://so.gushiwen.cn/shiwenv_f3d6556dbcad.aspx","https://so.gushiwen.cn/shiwenv_8cbd65ff01b5.aspx","https://www.edb.gov.hk/attachment/tc/curriculum-development/kla/chi-edu/nss-lang/Set_text_12.pdf",
+            "https://so.gushiwen.cn/shiwenv_740f1087a38c.aspx","https://blog.tutorcircle.hk/26592/dse%E4%B8%AD%E6%96%87%E7%AF%84%E6%96%87-%E5%94%90%E8%A9%A9%E4%B8%89%E9%A6%96-%E5%B1%B1%E5%B1%85%E7%A7%8B%E6%9A%9D-%E6%9C%88%E4%B8%8B%E7%8D%A8%E9%85%8C-%E7%99%BB%E6%A8%93/","https://infinitymark.github.io/song_ci.github.io/","https://so.gushiwen.cn/shiwenv_8bc0871fe00b.aspx","https://so.gushiwen.cn/search.aspx?value=%E5%85%AD%E5%9B%BD%E8%AE%BA&valuej=%E5%85%AD"]
 
-            show_name.innerText= article_name_list[number_random]
+            number.style.transition = "2s"
+            number.style.fontSize = "50px"
+            number.innerText= article_name_list[number_random]
 
             setTimeout(function(){
                 window.open(article_link_list[number_random])
-            },2000)
+            },1000)
         })
     </script>
 </body>
