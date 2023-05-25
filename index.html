@@ -46,29 +46,27 @@
             transform: translate(-50%,-50%);
             width: 200%;
         }
-        #xiaoman_png{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            width: 200%;
-
-            /* display: none; */
-        }
     </style>
 </head>
 <body>
     <div id="">
-        <img src="https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/%E6%AF%8D%E4%BA%B2%E8%8A%82.jpg" alt="" id="bg_photo">
-        <img src="https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/%E5%B0%8F%E6%BB%A1.jpg" alt="" id="xiaoman_png">
+        <img src="" alt="" id="bg_photo">
         <h1 id="number">随机回忆课文</h1>
         <button id="take_one">自然选择</button>
     </div>
 
     <script>
-        // let random_math = parseInt(Math.random()*10)
+        let random_math = parseInt(Math.random()*24)
         // let xiaoman_png = document.getElementById("xiaoman_png")
-        // let bg_photo = document.getElementById("bg_photo")
+        let background_photo_list = [
+                    "https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/立春.jpg","https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/雨水.jpg","https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/惊蛰.jpg","https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/春分.jpg","https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/清明.jpg","https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/谷雨.jpg",
+                    "https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/立夏.jpg","https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/小满.jpg","https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/芒种.jpg","https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/夏至.jpg","https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/小暑.jpg","https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/大暑.jpg",
+                    "https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/立秋.jpg","https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/处暑.jpg","https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/白露.jpg","https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/秋分.jpg","https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/寒露.jpg","https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/霜降.jpg",
+                    "https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/立冬.jpg","https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/小雪.jpg","https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/大雪.jpg","https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/冬至.jpg","https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/小寒.jpg","https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/大寒.jpg"
+                                    ] 
+        let bg_photo = document.getElementById("bg_photo")
+        // console.log(background_photo_list.length)
+        bg_photo.src = background_photo_list[random_math]
         // while(random_math<=5){
         //     xiaoman_png.style.display = "inline"
         //     bg_photo.style.display = "none"
