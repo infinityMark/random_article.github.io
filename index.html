@@ -7,6 +7,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Sans+HK&display=swap" rel="stylesheet">
+    <!-- <script src="https://github.com/hgoebl/mobile-detect.js"></script>
+    <script>
+        import MobileDetect from "mobile-detect";
+        var md = new MobileDetect(window.navigator.userAgent);
+        console.log(md)
+    </script> -->
     <title>--随机课文背诵--</title>
 
     <style>
@@ -47,17 +53,113 @@
             width: 100%;
             /* height: 100px; */
         }
+
+        #model{
+            width: 100%;
+            height: 70px;
+            border-radius: 22px;
+            background-color: #ffffff;
+            opacity: 0.7;
+            display: inline-flex;
+        }
+
+        #book{
+            position: absolute;
+            top: 3%;
+            left: 20%;
+            transform: translate(-50%,-50%);
+
+            background-color: #efeee1;
+            border-radius: 22px;
+        }
+
+        #note{
+            position: absolute;
+            top: 3%;
+            left: 80%;
+            transform: translate(-50%,-50%);
+        }
+
+        /* .words{
+            background-color: aquamarine;
+            border-radius: 22px;
+        } */
     </style>
 </head>
 <body>
-    <div id="">
-        <img src="" alt="" id="bg_photo">
-        <h1 id="number">随机回忆课文</h1>
-        <button id="take_one">自然选择</button>
+    <div>
+        <div id="model"></div>
+        <h1 id="book" class="words">背书</h1>
+        <h1 id="note" class="words">笔记</h1>
+
+        <div id="">
+            <img src="" alt="" id="bg_photo">
+            <h1 id="number">随机复习</h1>
+            <button id="take_one">自然选择</button>
+        </div>
+    </div>
+
+    <div>
+        <img src="" alt="">
     </div>
 
     <script>
         let random_math = parseInt(Math.random()*24)
+        let number_random = parseInt(Math.random()*10)
+        let book = document.getElementById("book")
+        let note = document.getElementById("note")
+
+        let book_condition = {
+            choose:true
+        }
+        let note_condition = {
+            choose:false
+        }
+        
+        // note.addEventListener("click",function(){
+        //     note_condition.choose = true
+        //     book_condition.choose = false
+        // })
+        // book.addEventListener("click",function(){
+        //     book_condition.choose = true
+        //     note_condition.choose = false
+        // })
+
+        // if(note_condition.choose == true){
+        //     note.style.backgroundColor = "#efeee1"
+        //     note.style.borderRadius = "22px"
+
+        //     book.style.backgroundColor = "#ffffff"
+        //     book.style.opacity = "0.8"
+        // }
+        // else{
+        //     book.style.backgroundColor = "#efeee1"
+        //     book.style.borderRadius = "22px"
+
+        //     note.style.backgroundColor = "#ffffff"
+        //     note.style.opacity = "0.8"
+        // }
+        // console.log(note_condition.choose)
+
+        note.addEventListener("click",function(){
+            note_condition.choose = true
+            note.style.backgroundColor = "#efeee1"
+            note.style.borderRadius = "22px"
+
+            book_condition.choose = false
+            book.style.backgroundColor = "#fafaf6"
+            // book.style.opacity = "0.8"
+        })
+        book.addEventListener("click",function(){
+            book_condition.choose = true
+            book.style.backgroundColor = "#efeee1"
+            book.style.borderRadius = "22px"
+
+            note_condition.choose = false
+            note.style.backgroundColor = "#fafaf6"
+            // note.style.opacity = "0.8"
+        })
+
         // let xiaoman_png = document.getElementById("xiaoman_png")
         let background_photo_list = [
                     "https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/立春.jpg","https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/雨水.jpg","https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/惊蛰.jpg","https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/春分.jpg","https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/清明.jpg","https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/谷雨.jpg",
@@ -76,21 +178,39 @@
         let take_one = document.getElementById("take_one")
 
         take_one.addEventListener("click",function(){
-            // let number = document.getElementById("number")
-            let number_random = parseInt(Math.random()*10)
+            let number = document.getElementById("number")
+            // let number_random = parseInt(Math.random()*10)
             number.innerText = number_random.toString()
 
             let article_name_list = ["师说","岳阳楼记","始得西山宴游记","論仁、論孝、論君子","鱼我所欲","诗三首","词三首","出师表","六国论"]
-            let article_link_list = ["https://so.gushiwen.cn/search.aspx?value=%E5%B8%88%E8%AF%B4&valuej=%E5%B8%88","https://so.gushiwen.cn/shiwenv_f3d6556dbcad.aspx","https://so.gushiwen.cn/shiwenv_8cbd65ff01b5.aspx","https://infinitymark.github.io/lunrenlunxiaolunjunzi.github.io/",
-            "https://so.gushiwen.cn/shiwenv_740f1087a38c.aspx","https://infinitymark.github.io/tang_poem.github.io/","https://infinitymark.github.io/song_ci.github.io/","https://so.gushiwen.cn/shiwenv_8bc0871fe00b.aspx","https://so.gushiwen.cn/search.aspx?value=%E5%85%AD%E5%9B%BD%E8%AE%BA&valuej=%E5%85%AD"]
+            let article_link_list = [
+                "https://so.gushiwen.cn/search.aspx?value=%E5%B8%88%E8%AF%B4&valuej=%E5%B8%88","https://so.gushiwen.cn/shiwenv_f3d6556dbcad.aspx","https://so.gushiwen.cn/shiwenv_8cbd65ff01b5.aspx","https://infinitymark.github.io/lunrenlunxiaolunjunzi.github.io/",
+            "https://so.gushiwen.cn/shiwenv_740f1087a38c.aspx","https://infinitymark.github.io/tang_poem.github.io/","https://infinitymark.github.io/song_ci.github.io/","https://so.gushiwen.cn/shiwenv_8bc0871fe00b.aspx","https://so.gushiwen.cn/search.aspx?value=%E5%85%AD%E5%9B%BD%E8%AE%BA&valuej=%E5%85%AD"
+                                    ]
+            
+            let shishuo = {
+                a:""
+            }
+            if(note_condition.choose == true){
+                // number.style.transition = "2s"
+                // number.style.fontSize = "40px"
+                number.innerText= article_name_list[number_random]
 
-            number.style.transition = "2s"
-            number.style.fontSize = "50px"
-            number.innerText= article_name_list[number_random]
+                setTimeout(function(){
+                    // window.open(note_link_list[0])
+                    alert("有待优化")
+                },1000)
+            }
+            else{
+                // number.style.transition = "2s"
+                // number.style.fontSize = "40px"
+                number.innerText = article_name_list[number_random]
 
-            setTimeout(function(){
-                window.open(article_link_list[number_random])
-            },1000)
+                setTimeout(function(){
+                    window.open(article_link_list[number_random])
+                },1000)
+            }
+
         })
     </script>
 </body>
