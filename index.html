@@ -69,8 +69,8 @@
             left: 20%;
             transform: translate(-50%,-50%);
 
-            background-color: #efeee1;
-            border-radius: 22px;
+            /* background-color: #efeee1;
+            border-radius: 22px; */
         }
 
         #note{
@@ -80,6 +80,17 @@
             transform: translate(-50%,-50%);
         }
 
+        #select_bgc{
+            background-color: #efeee1;
+            width: 80px;
+            height: 50px;
+            border-radius: 22px;
+
+            position: absolute;
+            top: 6%;
+            left: 20%;
+            transform: translate(-50%,-50%);
+        }
         /* .words{
             background-color: aquamarine;
             border-radius: 22px;
@@ -88,7 +99,8 @@
 </head>
 <body>
     <div>
-        <div id="model"></div>
+        <div id="model"><div id="select_bgc"></div></div>
+        
         <h1 id="book" class="words">背书</h1>
         <h1 id="note" class="words">笔记</h1>
 
@@ -107,6 +119,7 @@
         let random_math = parseInt(Math.random()*24)
         let book = document.getElementById("book")
         let note = document.getElementById("note")
+        let select_bgc = document.getElementById("select_bgc")
 
         let book_condition = {
             choose:true
@@ -142,20 +155,25 @@
 
         note.addEventListener("click",function(){
             note_condition.choose = true
-            note.style.backgroundColor = "#efeee1"
-            note.style.borderRadius = "22px"
+            // note.style.backgroundColor = "#efeee1"
+            // note.style.borderRadius = "22px"
+
+            select_bgc.style.left = "80%"
+            select_bgc.style.transition = "0.5s"
 
             book_condition.choose = false
-            book.style.backgroundColor = "#fafaf6"
+            // book.style.backgroundColor = "#fafaf6"
             // book.style.opacity = "0.8"
         })
         book.addEventListener("click",function(){
             book_condition.choose = true
-            book.style.backgroundColor = "#efeee1"
-            book.style.borderRadius = "22px"
+            // book.style.backgroundColor = "#efeee1"
+            // book.style.borderRadius = "22px"
+            select_bgc.style.left = "20%"
+            select_bgc.style.transition = "0.5s"
 
             note_condition.choose = false
-            note.style.backgroundColor = "#fafaf6"
+            // note.style.backgroundColor = "#fafaf6"
             // note.style.opacity = "0.8"
         })
 
