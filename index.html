@@ -94,7 +94,7 @@
 
             position: absolute;
             top: 50%;
-            left: 20%;
+            left: 19%;
             transform: translate(-50%,-50%);
         }
         /* .words{
@@ -117,8 +117,8 @@
         </div>
     </div>
 
-    <div>
-        
+    <div class="">
+        <img src="" alt="" id="resour">
     </div>
 
     <script>
@@ -126,6 +126,7 @@
         let book = document.getElementById("book")
         let note = document.getElementById("note")
         let select_bgc = document.getElementById("select_bgc")
+        let resour = document.getElementById("resour")
 
         let book_condition = {
             choose:true
@@ -164,7 +165,7 @@
             // note.style.backgroundColor = "#efeee1"
             // note.style.borderRadius = "22px"
 
-            select_bgc.style.left = "80%"
+            select_bgc.style.left = "81%"
             select_bgc.style.transition = "0.5s"
 
             book_condition.choose = false
@@ -175,7 +176,7 @@
             book_condition.choose = true
             // book.style.backgroundColor = "#efeee1"
             // book.style.borderRadius = "22px"
-            select_bgc.style.left = "20%"
+            select_bgc.style.left = "19%"
             select_bgc.style.transition = "0.5s"
 
             note_condition.choose = false
@@ -201,28 +202,42 @@
         let take_one = document.getElementById("take_one")
 
         take_one.addEventListener("click",function(){
-            let number_random = parseInt(Math.random()*10)
+            let number_random = parseInt(Math.random()*12)
             let number = document.getElementById("number")
             // let number_random = parseInt(Math.random()*10)
             number.innerText = number_random.toString()
+            // for (let index = 0; index < 12; index++) {
+            //     console.log(parseInt(Math.random()*12))
+                
+            // }
 
-            let article_name_list = ["师说","岳阳楼记","始得西山宴游记","論仁、論孝、論君子","鱼我所欲","诗三首","词三首","出师表","六国论","廉颇蔺相如列传"]
+            let article_name_list = ["师说","岳阳楼记","始得西山宴游记","論仁、論孝、論君子","鱼我所欲","诗三首","词三首","出师表","六国论","廉颇蔺相如列传","劝学","逍遥游"]
             let article_link_list = [
                 "https://so.gushiwen.cn/search.aspx?value=%E5%B8%88%E8%AF%B4&valuej=%E5%B8%88","https://so.gushiwen.cn/shiwenv_f3d6556dbcad.aspx","https://so.gushiwen.cn/shiwenv_8cbd65ff01b5.aspx","https://infinitymark.github.io/lunrenlunxiaolunjunzi.github.io/",
-            "https://so.gushiwen.cn/shiwenv_740f1087a38c.aspx","https://infinitymark.github.io/tang_poem.github.io/","https://infinitymark.github.io/song_ci.github.io/","https://so.gushiwen.cn/shiwenv_8bc0871fe00b.aspx","https://so.gushiwen.cn/search.aspx?value=%E5%85%AD%E5%9B%BD%E8%AE%BA&valuej=%E5%85%AD","https://infinitymark.github.io/liezhuan.github.io/"
+            "https://so.gushiwen.cn/shiwenv_740f1087a38c.aspx","https://infinitymark.github.io/tang_poem.github.io/","https://infinitymark.github.io/song_ci.github.io/","https://so.gushiwen.cn/shiwenv_8bc0871fe00b.aspx","https://so.gushiwen.cn/search.aspx?value=%E5%85%AD%E5%9B%BD%E8%AE%BA&valuej=%E5%85%AD","https://infinitymark.github.io/liezhuan.github.io/","https://infinitymark.github.io/quanxue.github.io/","https://infinitymark.github.io/xiaoyaoyou.github.io/"
                                     ]
             
-            let shishuo = {
-                a:""
-            }
+            let shishuo = [
+                "https://p8.itc.cn/q_70/images03/20210213/1be0a6b028234f94baa26450bf5eb4d1.jpeg"
+            ]
+
             if(note_condition.choose == true){
                 // number.style.transition = "2s"
                 // number.style.fontSize = "40px"
                 number.innerText= article_name_list[number_random]
 
                 setTimeout(function(){
+                    number.style.display = "none"
+                    take_one.style.display = "none"
+                    bg_photo.style.display = "none"
+
+                    for (let index = 0; index < array.length; index++) {
+                        const element = array[index];
+                        
+                    }
                     // window.open(note_link_list[0])
-                    alert("有待优化")
+                    // alert("有待优化")
+                    let times = shishuo.length
                 },1000)
             }
             else{
