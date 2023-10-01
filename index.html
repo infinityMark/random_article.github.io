@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Sans+HK&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- <script src="https://github.com/hgoebl/mobile-detect.js"></script>
     <script>
         import MobileDetect from "mobile-detect";
@@ -34,8 +35,8 @@
         #take_one{
             width: 200px;
             height: 50px;
-            font-size: 20px;
-            background-color: #ffffff;
+            font-size: 30px;
+            background-color: #efeee1;
             border: #000000 solid 3px;
             border-radius: 22px;
 
@@ -97,10 +98,9 @@
             left: 19%;
             transform: translate(-50%,-50%);
         }
-        /* .words{
-            background-color: aquamarine;
-            border-radius: 22px;
-        } */
+        .material-symbols-outlined{
+            font-size: 40px;
+        }
     </style>
 </head>
 <body>
@@ -113,7 +113,9 @@
         <div id="">
             <img src="" alt="" id="bg_photo">
             <h1 id="number">随机复习</h1>
-            <button id="take_one">自然选择</button>
+            <button id="take_one"><span class="material-symbols-outlined">
+                skip_next
+                </span></button>
         </div>
     </div>
 
@@ -134,31 +136,6 @@
         let note_condition = {
             choose:false
         }
-        
-        // note.addEventListener("click",function(){
-        //     note_condition.choose = true
-        //     book_condition.choose = false
-        // })
-        // book.addEventListener("click",function(){
-        //     book_condition.choose = true
-        //     note_condition.choose = false
-        // })
-
-        // if(note_condition.choose == true){
-        //     note.style.backgroundColor = "#efeee1"
-        //     note.style.borderRadius = "22px"
-
-        //     book.style.backgroundColor = "#ffffff"
-        //     book.style.opacity = "0.8"
-        // }
-        // else{
-        //     book.style.backgroundColor = "#efeee1"
-        //     book.style.borderRadius = "22px"
-
-        //     note.style.backgroundColor = "#ffffff"
-        //     note.style.opacity = "0.8"
-        // }
-        // console.log(note_condition.choose)
 
         note.addEventListener("click",function(){
             note_condition.choose = true
@@ -206,20 +183,27 @@
             let number = document.getElementById("number")
             // let number_random = parseInt(Math.random()*10)
             number.innerText = number_random.toString()
-            // for (let index = 0; index < 12; index++) {
-            //     console.log(parseInt(Math.random()*12))
-                
-            // }
 
-            let article_name_list = ["师说","岳阳楼记","始得西山宴游记","論仁、論孝、論君子","鱼我所欲","诗三首","词三首","出师表","六国论","廉颇蔺相如列传","劝学","逍遥游"]
-            let article_link_list = [
-                "https://so.gushiwen.cn/search.aspx?value=%E5%B8%88%E8%AF%B4&valuej=%E5%B8%88","https://so.gushiwen.cn/shiwenv_f3d6556dbcad.aspx","https://so.gushiwen.cn/shiwenv_8cbd65ff01b5.aspx","https://infinitymark.github.io/lunrenlunxiaolunjunzi.github.io/",
-            "https://so.gushiwen.cn/shiwenv_740f1087a38c.aspx","https://infinitymark.github.io/tang_poem.github.io/","https://infinitymark.github.io/song_ci.github.io/","https://so.gushiwen.cn/shiwenv_8bc0871fe00b.aspx","https://so.gushiwen.cn/search.aspx?value=%E5%85%AD%E5%9B%BD%E8%AE%BA&valuej=%E5%85%AD","https://infinitymark.github.io/liezhuan.github.io/","https://infinitymark.github.io/quanxue.github.io/","https://infinitymark.github.io/xiaoyaoyou.github.io/"
-                                    ]
-            
+            let article_resource_list = [
+                ["师说","https://so.gushiwen.cn/search.aspx?value=%E5%B8%88%E8%AF%B4&valuej=%E5%B8%88"],
+                ["岳阳楼记","https://so.gushiwen.cn/shiwenv_f3d6556dbcad.aspx"],
+                ["始得西山宴游记","https://so.gushiwen.cn/shiwenv_8cbd65ff01b5.aspx"],
+                ["論仁、論孝、論君子","https://infinitymark.github.io/lunrenlunxiaolunjunzi.github.io/"],
+                ["鱼我所欲","https://so.gushiwen.cn/shiwenv_740f1087a38c.aspx"],
+                ["诗三首","https://infinitymark.github.io/tang_poem.github.io/"],
+                ["词三首","https://infinitymark.github.io/song_ci.github.io/"],
+                ["出师表","https://so.gushiwen.cn/shiwenv_8bc0871fe00b.aspx"],
+                ["六国论","https://so.gushiwen.cn/search.aspx?value=%E5%85%AD%E5%9B%BD%E8%AE%BA&valuej=%E5%85%AD"],
+                ["廉颇蔺相如列传","https://infinitymark.github.io/liezhuan.github.io/"],
+                ["劝学","https://infinitymark.github.io/quanxue.github.io/"],
+                ["逍遥游","https://infinitymark.github.io/xiaoyaoyou.github.io/"]
+            ]
             let shishuo = [
                 "https://p8.itc.cn/q_70/images03/20210213/1be0a6b028234f94baa26450bf5eb4d1.jpeg"
             ]
+
+            let order_list = [true,false,true,false,true,false,true,false,true,false]
+            //  true = 正序                    false = 倒序
 
             if(note_condition.choose == true){
                 // number.style.transition = "2s"
@@ -231,23 +215,22 @@
                     take_one.style.display = "none"
                     bg_photo.style.display = "none"
 
-                    for (let index = 0; index < array.length; index++) {
-                        const element = array[index];
-                        
-                    }
-                    // window.open(note_link_list[0])
-                    // alert("有待优化")
                     let times = shishuo.length
                 },1000)
             }
             else{
-                // number.style.transition = "2s"
-                // number.style.fontSize = "40px"
-                number.innerText = article_name_list[number_random]
-
-                setTimeout(function(){
-                    window.open(article_link_list[number_random])
-                },1000)
+                if(order_list[parseInt(Math.random()*10)] == true){
+                    number.innerText = article_resource_list[number_random][0]
+                    setTimeout(function(){
+                        window.open(article_resource_list[number_random][1])
+                    },1000)
+                }
+                else{
+                    number.innerText = article_resource_list[12-number_random][0]
+                    setTimeout(function(){
+                        window.open(article_resource_list[12-number_random][1])
+                    },1000)
+                }
             }
         })
     </script>
