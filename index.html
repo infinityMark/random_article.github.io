@@ -140,17 +140,18 @@
             choose:false
         }
 
+        function change_bc() {
+            let touch_change = parseInt(Math.random()*10)
+            bg_photo.src = background_photo_list[touch_change]
+        }
         note.addEventListener("click",function(){
             note_condition.choose = true
-            // note.style.backgroundColor = "#efeee1"
-            // note.style.borderRadius = "22px"
 
             select_bgc.style.left = "81%"
             select_bgc.style.transition = "0.5s"
 
             book_condition.choose = false
-            // book.style.backgroundColor = "#fafaf6"
-            // book.style.opacity = "0.8"
+            change_bc()
         })
         book.addEventListener("click",function(){
             book_condition.choose = true
@@ -158,6 +159,7 @@
             select_bgc.style.transition = "0.5s"
 
             note_condition.choose = false
+            change_bc()
         })
         let background_photo_list = [
                     "https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/立春.jpg","https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/雨水.jpg","https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/惊蛰.jpg","https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/春分.jpg","https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/清明.jpg","https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/谷雨.jpg",
