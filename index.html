@@ -8,13 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Sans+HK&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <!-- <script src="https://github.com/hgoebl/mobile-detect.js"></script>
-    <script>
-        import MobileDetect from "mobile-detect";
-        var md = new MobileDetect(window.navigator.userAgent);
-        console.log(md)
-    </script> -->
-    <title>--随机课文背诵--</title>
+    
+    <title>--随机内容复习--</title>
     <link rel="website icon" type="png" href="https://raw.githubusercontent.com/infinityMark/random_article.github.io/main/text-format.png">
 
     <style>
@@ -102,6 +97,9 @@
         .material-symbols-outlined{
             font-size: 40px;
         }
+        .word_list{
+            font-size: 25px;
+        }
     </style>
 </head>
 <body>
@@ -123,7 +121,7 @@
     </div>
     
     <div id="list">
-        <p></p>
+        <p class="word_list"></p>
     </div>
 
     <script>
@@ -190,7 +188,7 @@
                 ["词三首","https://infinitymark.github.io/song_ci.github.io/"],
                 ["出师表","https://so.gushiwen.cn/shiwenv_8bc0871fe00b.aspx"],
                 ["六国论","https://so.gushiwen.cn/search.aspx?value=%E5%85%AD%E5%9B%BD%E8%AE%BA&valuej=%E5%85%AD"],
-                ["廉颇蔺相如列传","https://infinitymark.github.io/liezhuan.github.io/"],
+                ["廉颇与蔺相如列传","https://infinitymark.github.io/liezhuan.github.io/"],
                 ["劝学","https://infinitymark.github.io/quanxue.github.io/"],
                 ["逍遥游","https://infinitymark.github.io/xiaoyaoyou.github.io/"]
             ]
@@ -244,11 +242,9 @@
                         if(classical_chinese_resource_list[i][3] == article_resource_list[number_random][0]){
                             list.innerHTML = list.innerHTML+
                             `
-                            <P>${classical_chinese_resource_list[i][0]}:${classical_chinese_resource_list[i][1]}<br><P>${classical_chinese_resource_list[i][2]}</P></P>
+                            <P class="word_list">${classical_chinese_resource_list[i][0]}:${classical_chinese_resource_list[i][1]}<br><P class="word_list">${classical_chinese_resource_list[i][2]}</P></P>
                             <br>
                             `
-                            // document.write(classical_chinese_resource_list[i][0]+":"+classical_chinese_resource_list[i][1])
-                            // document.write("<br>")
                         }
                     }
                 },1000)
